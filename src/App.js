@@ -1,22 +1,17 @@
+import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./components/Home";
-import CreateTask from "./components/CreateTask";
-import EditTask from "./components/EditTask";
-import DeleteTask from "./components/DeleteTask";
-
+import TodoListPage from "./Pages/TodoListPage";
+import AddTodoPage from "./Pages/AddTodoPage";
+import EditTodoPage from "./Pages/EditTodoPage";
 const Router = createBrowserRouter([
-  { path: "/", element: <Home /> },
+  { path: "/", element: <TodoListPage /> },
   {
-    path: "/createtask",
-    element: <CreateTask />,
+    path: "/add",
+    element: <AddTodoPage />,
   },
   {
-    path: "/edittask/:id",
-    element: <EditTask />,
-  },
-  {
-    path: "/deletetask/:id",
-    element: <DeleteTask />,
+    path: "/edit/:id",
+    element: <EditTodoPage />,
   },
 ]);
 function App() {
