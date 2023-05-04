@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import TodoForm from "../components/TodoForm";
+import UpdateTodoForm from "../components/UpdateTodoForm";
 
 const EditTodoPage = () => {
   const { id } = useParams();
@@ -8,7 +8,7 @@ const EditTodoPage = () => {
   return (
     <div>
       <h2>Edit Todo Page</h2>
-      <TodoForm todoId={id} />
+      <UpdateTodoForm todoId={id} />
     </div>
   );
 };

@@ -7,11 +7,13 @@ const TodoList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const storedTodos = localStorage.getItem("todos");
-    if (storedTodos) {
-      dispatch({ type: "todo/addTodo", payload: JSON.parse(storedTodos) });
+    if (todos.length === 0) {
+      const storedTodos = localStorage.getItem("todos");
+      if (storedTodos) {
+        dispatch({ type: "todo/addTodo", payload: JSON.parse(storedTodos) });
+      }
     }
-  }, [dispatch]);
+  }, [dispatch, todos.length]);
 
   const handleDelete = (id) => {
     dispatch(deleteTodo(id));
