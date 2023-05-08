@@ -4,9 +4,12 @@ import { deleteTodo } from "../Store/todoSlice";
 import { useGetRandomImgQuery } from "../api/apiSlice";
 
 const TodoList = () => {
-  const todos = useSelector((state) => state.todos); // it return the todos slice from state object
-  const dispatch = useDispatch();
+  const todos = useSelector((state) => state.todos);
+  // hook to access cached data in components, it return the todos slice from state object
+  // it subscribe the  update from the redux store , and will be rerender whenever the selected state change
+  const dispatch = useDispatch(); //hook to dispatch the action to the redux store
   const [checkedTodo, setcheckedTodo] = useState([]);
+  console.log(checkedTodo);
   const { refetch } = useGetRandomImgQuery();
   const [checkedImg, setCheckedImg] = useState();
 
@@ -23,6 +26,7 @@ const TodoList = () => {
     dispatch(deleteTodo(id));
   };
 
+  //new task
   function handleCheckboxChange(id) {
     if (checkedTodo.includes(id)) {
       setcheckedTodo(checkedTodo.filter((checkedId) => checkedId !== id));

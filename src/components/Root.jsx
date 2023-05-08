@@ -5,6 +5,7 @@ const RootLayout = () => {
   return (
     <>
       <MainNavBar />
+      {/* to render the childs  */}
       <Outlet />
     </>
   );

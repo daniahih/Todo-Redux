@@ -9,12 +9,14 @@ const saveToLocalStorage = (todos) => {
   localStorage.setItem("todos", JSON.stringify(todos));
 };
 
+//create slice by generating the reducer and action creators based on case reducers
 const todoSlice = createSlice({
   name: "todo",
   initialState: loadFromLocalStorage(),
   reducers: {
+    //reducer: input: curr state, action => output: new state accourding to the action
     addTodo: (state, action) => {
-      state.push(action.payload);
+      state.push(action.payload); //state is the stored todos
       saveToLocalStorage(state);
     },
     updateTodo: (state, action) => {
