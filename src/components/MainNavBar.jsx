@@ -11,7 +11,7 @@ const MainNavBar = () => {
             <Link to="/add"> add TODo</Link>
           </li>
           <li>
-            <Link to="/edit/:id"> Udate todo</Link>
+            <Link to="/edit/:id"> update todo</Link>
           </li>
         </ul>
       </nav>
