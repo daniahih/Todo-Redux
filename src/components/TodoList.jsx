@@ -7,6 +7,7 @@ const TodoList = () => {
   const todos = useSelector((state) => state.todos); // it return the todos slice from state object
   const dispatch = useDispatch();
   const [checkedTodo, setcheckedTodo] = useState([]);
+  console.log(checkedTodo);
   const { refetch } = useGetRandomImgQuery();
   const [checkedImg, setCheckedImg] = useState();
 

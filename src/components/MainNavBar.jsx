@@ -1,5 +1,9 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
+
+//get all the neccessary methods from the useAuth0 Hook
 const MainNavBar = () => {
+  const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
   return (
     <header>
       <nav>
@@ -13,6 +17,25 @@ const MainNavBar = () => {
           <li>
             <Link to="/edit/:id"> update todo</Link>
           </li>
+
+          {isAuthenticated && (
+            <li>
+              <p> welcome {user.name} </p>
+            </li>
+          )}
+          {isAuthenticated ? (
+            <li>
+              <button
+                onClick={() => logout({ returnTo: window.location.origin })}
+              >
+                Log Out
+              </button>
+            </li>
+          ) : (
+            <li>
+              <button onClick={() => loginWithRedirect()}>Log In</button>
+            </li>
+          )}
         </ul>
       </nav>
     </header>
